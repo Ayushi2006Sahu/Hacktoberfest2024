@@ -1,0 +1,33 @@
+LeetCode :Problem Of The Day :04-10-2024
+
+
+Question:Divide Players Into Teams Of Equal Skill
+
+I/P: skill =[3,2,5,1,3,4]
+O/P: 22
+Explaination:(1,5),(2,4),(3,3);
+ sum =1*5 +2*4 +3*3 =22
+
+
+
+Approach: Sorting
+#> First Sort the given skill array;
+#> Then make a int datatype which store the target value: skill[0]+skill[n-1]
+#> Using a for loop  then search another pair which can matches with the target value then do the approach as given.
+
+
+Code Part:
+long long divideplayers(vector<int>&skill){
+int n=skill.size();
+sort(skill.begin(),skill.end());
+int target=skill[0]+skill[n-1];
+long long total =0;
+for(int i=0;i<n/2;i++){
+int curr =skill[n]+skill[n-i-1];
+if(curr!=target){
+return -1;
+}
+total+=(long long)skill[i]*(long long)skill[n-i-1];
+}
+return total;
+}
