@@ -1,0 +1,39 @@
+
+          ---------GOOGLE-----------
+          ---------OYO--------------
+           ---------AMAZON------------
+ 
+@ GOA based Question:
+
+Question: Four Elements that sums to a given value;
+    I/P:arr: [2,6,12,18,2,4]  ,Target :26
+     O/P: YES
+
+
+ Approach: Sort the array ;
+then using two for loop and two pointers approach ,
+
+Code Part:
+ bool four_sum(vector<int>&arr,int n){
+sort(begin(arr),end(arr));
+for(int i=0;i<n-3;i++){
+for(int j=i+1;j<n-2;j++){
+int l=j+1;
+int r=n-1;
+while(l<r){
+
+int sum = arr[i]+arr[j]+arr[l]+arr[r];
+if(sum==target){
+return "YES";
+}
+else if(sum<target){
+l++;
+}
+else r--;
+}
+}
+
+}
+return "NO";
+}
+
